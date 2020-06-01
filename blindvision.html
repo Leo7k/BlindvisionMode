@@ -1,0 +1,55 @@
+<dialog id="blindvisionconfig-dialog">
+    <form role="presentation" id="blindvisionconfig">
+    <div><button type="button" id="bvcontrol_cancel">×</button><h2><span>Настройка режима для слабовидящих</span></h2></div>
+    <div>
+        <div>
+        <fieldset name="font-config">
+            <legend>Настройки шрифта:</legend>
+            <div>
+                <div><label>Минимальный размер шрифта: </label><input type="range" name="bvcontrol-fontsize" min="100" max="300" step="1" value="100" data-styletype="inline" data-styleprop="font-size" data-selector="body" data-valuepostfix="%"/></div>
+                <div><label>Интервал между буквами в слове: </label><input type="range" name="bvcontrol-letterspacing" data-styletype="inline" data-styleprop="letter-spacing" data-selector="body" data-valuepostfix="px" min="0" value="0" max="10"/></div>
+                <div><label>Межстрочный интервал: </label><input type="range" name="bvcontrol-lineheight" data-styletype="inline" data-styleprop="line-height" data-selector="body" data-valuepostfix="%" min="90" value="100" max="250"/></div>
+            </div>
+            <br/>
+            <label><input type="checkbox" name="bvcontrol-fontserif" data-styletype="class" data-selector="body" value="font-serif"/> Шрифты с засечками</label>
+        </fieldset>
+            <fieldset name="img-config">
+                <legend>Настройки изображений и цветовой схемы:</legend>
+                <div>
+                    <div><label>Контрастность цветов: </label><input name="bvcontrol-contrast" min="80" value="100" max="200" data-styletype="filter" data-selector="body > header, body > nav, body > footer, #mainvline, #blindvisionconfig-dialog" data-valuepostfix="%" data-filtertype="contrast" type="range"></div>
+                    <div><label>Насыщенность цветов:</label><input name="bvcontrol-saturation" min="0" value="100" max="200" data-styletype="filter" data-selector="body > header, body > nav, body > footer, #mainvline, #blindvisionconfig-dialog" data-valuepostfix="%" data-filtertype="saturate" type="range"></div>
+                    <div><label>Искажение цветов:</label><input name="bvcontrol-huerotate" min="0" value="0" max="180" data-styletype="filter" data-selector="body > header, body > nav, body > footer, #mainvline, #blindvisionconfig-dialog" data-valuepostfix="deg" data-filtertype="hue-rotate" type="range"></div>
+                    <div><label>Изображения:</label>
+                        <select name="bvcontrol-imgdisplay" data-styletype="class" data-selector="img">
+                            <option value="" selected="">Показывать изображения</option>
+                            <option value="invisible">Скрывать изображения</option>
+                            <option value="displaynone">Скрывать изображения и занятое ими место</option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <label><input name="bvcontrol-nobackgroundimg" data-styletype="class" data-selector="*:not(button)" value="no-background-images" type="checkbox"> Скрывать фоновые изображения</label>
+            </fieldset>
+            <fieldset name="webtts-config">
+            <legend>Настройки озвучки:</legend>
+            Для полноценной озучки сайта необходимо установить программу экранного доступа (<a href="https://nvda.ru/">NVDA</a>, JAWS, Orca или аналог) с русскоязычным голосовым набором.
+            Чтобы озвучивать текст при наведении мыши и при переключении клавишей Tab без использования программы экранного доступа, отметьте флажок ниже:
+            <br/>
+            <label><input type="checkbox" id="bvcontrol-webtts" name="bvcontrol-webtts" value="webtts-enabled" data-styletype="none" disabled/> Включить озвучку при наведении мыши и управлении с клавиатуры</label>
+            <div id="tts_warning">Чтобы воспользоваться этой функцией, необходимо
+                <ul id="tts_requirements">
+                    <li id="bv_hassynth">Установить на ваше устройство синтезатор речи с поддержкой русского языка. <a href="https://github.com/Olga-Yakovleva/RHVoice/wiki/Latest-version">Скачать его можно здесь</a>.</li>
+                    <li id="bv_rusvoice">В системных настройках синтеза речи выбрать русскоязычный голосовой набор в качестве основного</li>
+                    <li id="bv_hasbrowser">Использовать для просмотра этого сайта браузеры не ниже указанных версий: Firefox 45.0, Google Chrome 33.0, Opera 27, Safari 7, Edge 14</li>
+                </ul>
+            </div>
+        </fieldset>
+        </div>
+        <fieldset name="bvcontrol_buttons">
+            <button type="button" id="bvcontrol_ok">OK</button>
+            <button type="button" id="bvcontrol_apply">Применить</button>
+            <button type="reset" id="bvcontrol_resetbtn">Сброс</button>
+        </fieldset>
+    </div>
+        </form>
+</dialog>
